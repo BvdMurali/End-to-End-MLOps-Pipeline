@@ -48,13 +48,14 @@ def test_health_check_healthy():
         assert response.json() == {"status": "healthy"}
 
 def test_health_check_unhealthy():
-    # Temporarily remove artifacts
-    ml_models["preprocessor"] = None
-    ml_models["model"] = None
     with TestClient(app) as client:
+        # Clear artifacts after lifespan startup has completed
+        ml_models["preprocessor"] = None
+        ml_models["model"] = None
         response = client.get("/health")
         assert response.status_code == 200
         assert response.json()["status"] == "unhealthy"
+
 
 def test_predict_success():
     payload = {
