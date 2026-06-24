@@ -1,0 +1,27 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# MLflow tracking
+mlruns/
+mlruns.db
+mlflow.db
+
+# Large local datasets (downloaded dynamically in pipeline)
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*.csv
+
+# Temporary test workspaces
+tests/test_workspace/
+tests/test_ingest_workspace/
+temp_plots/
+
+# OS files
+.DS_Store
+Thumbs.db

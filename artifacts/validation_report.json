@@ -1,0 +1,12 @@
+{
+    "schema_validation": "PASSED",
+    "missing_values_validation": "PASSED",
+    "model_performance_validation": "PASSED",
+    "overall_status": "PASSED",
+    "details": {
+        "schema": "All expected columns are present.",
+        "missing_values": "All columns are within null threshold.",
+        "roc_auc": 0.9505044660551498,
+        "model_performance": "ROC-AUC 0.9505 meets threshold 0.7000."
+    }
+}

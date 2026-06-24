@@ -1,0 +1,44 @@
+data:
+  raw_url: "https://archive.ics.uci.edu/static/public/222/bank+marketing.zip"
+  raw_dir: "data/raw"
+  raw_file_path: "data/raw/bank-additional-full.csv"
+  processed_dir: "data/processed"
+  train_path: "data/processed/train.csv"
+  test_path: "data/processed/test.csv"
+  target_col: "y"
+
+artifacts:
+  dir: "artifacts"
+  preprocessor_path: "artifacts/preprocessor.joblib"
+  model_path: "artifacts/best_model.joblib"
+
+model:
+  test_size: 0.2
+  random_state: 42
+  thresholds:
+    roc_auc: 0.70
+    missing_ratio: 0.05
+  logistic_regression:
+    max_iter: 1000
+    C: 1.0
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_state: 42
+
+mlflow:
+  tracking_uri: "mlruns"
+  experiment_name: "bank-marketing-classification"
+  model_name: "bank-marketing-best-model"
+
+monitoring:
+  report_path: "monitoring/drift_report.html"
+
+logging:
+  log_file: "logs/app.log"
+  level: "INFO"
